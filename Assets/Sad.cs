@@ -1,26 +1,26 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class Sad : MonoBehaviour
 {
     [field: SerializeField]
-    public Texture2D SadMaterial { get; set; }
+    public Sprite SadMaterial { get; set; }
     [field: SerializeField]
-    public Texture2D HappyMaterial { get; set; }
+    public Sprite HappyMaterial { get; set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [field: SerializeField]
-    public GameObject Game { get; set; }
+
+    public Game Game { get; set; }
     void Start()
     {
-        this.GetComponent<MeshRenderer>().material.mainTexture = SadMaterial;
-        
+        this.GetComponent<SpriteRenderer>().sprite = SadMaterial;
+        Game = GameObject.FindWithTag("Game").GetComponent<Game>();
     }
 
     public void MakeHappy()
     {
-        this.GetComponent<MeshRenderer>().material.mainTexture = HappyMaterial;
+        this.GetComponent<SpriteRenderer>().sprite = HappyMaterial;
         this.gameObject.tag = "Happy";
-        Game.GetComponent<Game>().SadPeopleLeft--;
+        Game.SadPeopleLeft--;
     }
     // Update is called once per frame
     void Update()
