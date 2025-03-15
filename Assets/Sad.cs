@@ -8,6 +8,8 @@ public class Sad : MonoBehaviour
     [field: SerializeField]
     public Texture2D HappyMaterial { get; set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [field: SerializeField]
+    public Game Game { get; set; }
     void Start()
     {
         this.GetComponent<MeshRenderer>().material.mainTexture = SadMaterial;
@@ -18,6 +20,7 @@ public class Sad : MonoBehaviour
     {
         this.GetComponent<MeshRenderer>().material.mainTexture = HappyMaterial;
         this.gameObject.tag = "Happy";
+        Game.SadPeopleLeft--;
     }
     // Update is called once per frame
     void Update()
