@@ -27,9 +27,9 @@ public class Player : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
-		var speedVector = speed * Time.fixedDeltaTime * (transform.forward * moveInput.y + transform.right * moveInput.x);
+		var speedVector = speed * Time.deltaTime * (transform.forward * moveInput.y + transform.right * moveInput.x);
 		_character.SimpleMove(speedVector);
 	}
 
@@ -59,5 +59,4 @@ public class Player : MonoBehaviour
 	{
 		moveInput = value.Get<Vector2>();
 	}
-
 }
