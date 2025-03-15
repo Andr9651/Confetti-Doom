@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 	private Transform _camera;
 	private Transform _transform;
 	private CharacterController _character;
-	private GunAnimator _gunAnimator;
+	
 	private float xRotation = 0;
 	private Vector2 moveInput;
 	public float speed = 5;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 		_camera = GetComponentInChildren<Camera>().transform;
 		_character = GetComponent<CharacterController>();
 		_transform = transform;
-		_gunAnimator = GetComponentInChildren<GunAnimator>();
+		
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -77,6 +77,6 @@ public class Player : MonoBehaviour
 	private void OnAttack()
 	{
 		SetCursorLock(true);
-		_gunAnimator.Shoot();
+		
 	}
 }

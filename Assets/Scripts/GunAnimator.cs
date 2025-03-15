@@ -7,7 +7,7 @@ public class GunAnimator : MonoBehaviour
 {
 	public SpriteAnimation Animation;
 	private Image _image;
-	private bool _playing = false;
+	public bool Playing = false;
 
 	void Start()
 	{
@@ -16,12 +16,12 @@ public class GunAnimator : MonoBehaviour
 	}
 	public void Shoot()
 	{
-		if (_playing == true)
+		if (Playing == true)
 		{
 			return;
 		}
 
-		_playing = true;
+		Playing = true;
 		StartCoroutine(PlayAnimation());
 	}
 
@@ -35,6 +35,6 @@ public class GunAnimator : MonoBehaviour
 
 		_image.sprite = Animation.frames[0].sprite;
 
-		_playing = false;
+		Playing = false;
 	}
 }
