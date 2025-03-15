@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class Popper : MonoBehaviour
     public SpriteAnimation PopperAnimation { get; set; }
     [field: SerializeField]
     public SpriteAnimation DoublePopperAnimation { get; set; }
+    [field: SerializeField]
+    public SpriteAnimation CannonAnimation { get; set; }
     float NextShot { get; set; }
  bool Reloading { get; set; }
      float Speed { get; set; }
@@ -21,23 +24,54 @@ public class Popper : MonoBehaviour
      float ReloadSeconds { get; set; }
 
     public  PopperType  CurrentType { get; set; }
+    
+    public int PopperAmmo { get; set; }
+    public int DoublePopperAmmo { get; set; }
+    public int CannonAmmo { get; set; }
 
    public enum PopperType
     {
         Popper,
         DoublePopper,
         Cannon
-    }  
-    
+    }
+
+ public   void AddAmmo(PopperType Type)
+    {
+        var curentAmmo = 0;
+        switch (Type)
+        {
+            case PopperType.DoublePopper:
+
+                DoublePopperAmmo = DoublePopperAmmo + 2;
+                curentAmmo = DoublePopperAmmo;
+                break;
+            case PopperType.Cannon:
+                CannonAmmo = CannonAmmo + 1;
+                curentAmmo = CannonAmmo;
+                break;
+            default:
+                PopperAmmo = PopperAmmo + 5;
+                curentAmmo = PopperAmmo; 
+            
+                break;
+        }
+
+        if (CurrentType == Type)
+        {
+          PickPopper(Type);
+        }
+    }
     void PickPopper(PopperType Type)
     {
         NextShot = Time.time;
+        var CurrentAmmo = 0;
         switch (Type)
         {
             case PopperType.DoublePopper:
 
                 _gunAnimator.Animation = DoublePopperAnimation;
-                
+                CurrentAmmo = DoublePopperAmmo;
                 MaxAmount = 15;
                 MinAmount = 8;
                 Speed = 40;
@@ -48,6 +82,8 @@ public class Popper : MonoBehaviour
                 ReloadSeconds = 1.3f;
                 break;
             case PopperType.Cannon:
+                _gunAnimator.Animation = CannonAnimation;
+                CurrentAmmo = CannonAmmo;
                 MaxAmount = 80;
                 MinAmount = 20;
                 Speed = 100;
@@ -65,14 +101,39 @@ public class Popper : MonoBehaviour
                 MinSpread = -0.5f;
                 MaxSpread = 0.5f;
                 CurrentType = PopperType.Popper;
-                Distance = 3;
+                Distance = 2;
                 ReloadSeconds = 1;
-            
+                CurrentAmmo = PopperAmmo;
                 break;
         }
-        _gunAnimator.Image.sprite = _gunAnimator.Animation.frames[0].sprite;
+
+        if (CurrentAmmo == 0)
+        {
+            _gunAnimator.ammoLeft = false;
+           
+            _gunAnimator.Image.sprite = _gunAnimator.Animation.frames.Last().sprite;
+          
+        }
+        else
+        {
+            _gunAnimator.ammoLeft = true;
+            _gunAnimator.Image.sprite = _gunAnimator.Animation.frames[0].sprite;
+        }
+       
     }
-    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        
+  
+     
+        if (hit.gameObject.CompareTag("Ammo") )
+        {
+         
+            AddAmmo( hit.gameObject.GetComponent<Ammo>().Type);
+            Debug.Log("Got Ammo");
+            Destroy(hit.gameObject);
+        }
+    }
     void FixedUpdate()
         {
 
@@ -80,7 +141,7 @@ public class Popper : MonoBehaviour
             {
 
 
-                if (_gunAnimator.Playing)
+                if (_gunAnimator.Playing || !_gunAnimator.ammoLeft)
                 {
                     return;
                 }
@@ -125,8 +186,28 @@ public class Popper : MonoBehaviour
 
     void Reload()
     {
-
+        var currentAmmo = 0;
         Reloading = true;
+        switch (CurrentType)
+        {
+            case PopperType.DoublePopper:
+                DoublePopperAmmo--;
+                currentAmmo = DoublePopperAmmo;
+                break;
+            case PopperType.Cannon:
+                CannonAmmo--;
+                currentAmmo = CannonAmmo;
+                break;
+            default:
+                PopperAmmo--;
+                currentAmmo = PopperAmmo;
+                break;
+        }
+
+        if (currentAmmo == 0)
+        {
+            _gunAnimator.ammoLeft = false;
+        }
         NextShot = Time.time + ReloadSeconds;
     }
     void Reloaded()
@@ -163,6 +244,8 @@ public class Popper : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PopperAmmo = 5;
+        
         _gunAnimator = GetComponentInChildren<GunAnimator>();
         PickPopper(PopperType.Popper);
     }
