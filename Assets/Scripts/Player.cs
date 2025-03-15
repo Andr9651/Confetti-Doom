@@ -8,9 +8,10 @@ public class Player : MonoBehaviour
 	private Transform _camera;
 	private Transform _transform;
 	private CharacterController _character;
-	
+
 	private float xRotation = 0;
 	private Vector2 moveInput;
+	private Vector2 lookInput;
 	public float speed = 5;
 
 	void Awake()
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
 		_camera = GetComponentInChildren<Camera>().transform;
 		_character = GetComponent<CharacterController>();
 		_transform = transform;
-		
+
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,24 +45,24 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		var speedVector = speed * Time.deltaTime * (transform.forward * moveInput.y + transform.right * moveInput.x);
-		_character.SimpleMove(speedVector);
-	}
-
-	private void OnLook(InputValue value)
-	{
-		var input = value.Get<Vector2>();
-		input *= mouseSensitivity;
-
 		var cameraRotation = _camera.rotation.eulerAngles;
-		xRotation -= input.y;
+		xRotation -= lookInput.y;
 		xRotation = Mathf.Clamp(xRotation, -90, 90);
 		cameraRotation.x = xRotation;
 		_camera.eulerAngles = cameraRotation;
 
 		var rotation = _transform.rotation.eulerAngles;
-		rotation.y += input.x;
+		rotation.y += lookInput.x;
 		_transform.eulerAngles = rotation;
+
+		var speedVector = speed * Time.deltaTime * (transform.forward * moveInput.y + transform.right * moveInput.x);
+		_character.Move(speedVector);
+	}
+
+	private void OnLook(InputValue value)
+	{
+		lookInput = value.Get<Vector2>();
+		lookInput *= mouseSensitivity;
 	}
 
 	private void OnCancel()
@@ -77,6 +78,6 @@ public class Player : MonoBehaviour
 	private void OnAttack()
 	{
 		SetCursorLock(true);
-		
+
 	}
 }
