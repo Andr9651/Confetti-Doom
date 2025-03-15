@@ -76,11 +76,11 @@ public class Popper : MonoBehaviour
                 CurrentAmmo = DoublePopperAmmo;
                 MaxAmount = 15;
                 MinAmount = 8;
-                Speed = 40;
+                Speed = 80;
                 MinSpread = -1f;
                 MaxSpread = 1f;
                 CurrentType = PopperType.DoublePopper;
-                Distance = 6;
+                Distance = 8;
                 ReloadSeconds = 1.3f;
                 break;
             case PopperType.Cannon:
@@ -88,11 +88,11 @@ public class Popper : MonoBehaviour
                 CurrentAmmo = CannonAmmo;
                 MaxAmount = 80;
                 MinAmount = 20;
-                Speed = 100;
+                Speed = 200;
                 MinSpread = -1.5f;
                 MaxSpread = 1.5f;
                 CurrentType = PopperType.Cannon;
-                Distance = 10;
+                Distance = 20;
                 ReloadSeconds = 3f;
                 break;
             default:

@@ -15,7 +15,17 @@ MonoBehaviour:
   frames:
   - sprite: {fileID: 21300000, guid: 3c207f15f1780044caa26b6afe63f9fc, type: 3}
     time: 0
+  - sprite: {fileID: 21300000, guid: afda44b5ca72779429be0cd487569a42, type: 3}
+    time: 0.1
+  - sprite: {fileID: 21300000, guid: b3228079f2e748a458b86b5d7dc4aed2, type: 3}
+    time: 0.1
+  - sprite: {fileID: 21300000, guid: afda44b5ca72779429be0cd487569a42, type: 3}
+    time: 0.2
   - sprite: {fileID: 21300000, guid: de48c8a5e7338054984e68b757b8e09a, type: 3}
     time: 0.08
   - sprite: {fileID: 21300000, guid: 2f73dd49e27661d40880d2eb4b2da46e, type: 3}
     time: 0.5
+  - sprite: {fileID: 21300000, guid: d8ce804d0340d054991782ab5d41bc6a, type: 3}
+    time: 0.2
+  - sprite: {fileID: 21300000, guid: ba1528cf54eed3d4ba34f59329c6e81a, type: 3}
+    time: 0.2
