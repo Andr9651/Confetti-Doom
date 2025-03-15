@@ -22,7 +22,8 @@ public class Player : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	// Update is called once per frame
@@ -48,7 +49,11 @@ public class Player : MonoBehaviour
 		_transform.eulerAngles = rotation;
 	}
 
-
+	private void OnCancel()
+	{
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
 
 	private void OnMove(InputValue value)
 	{
