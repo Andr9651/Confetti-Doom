@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 7622700052025135418}
   - component: {fileID: 907816073194478917}
   m_Layer: 6
-  m_Name: Gun
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,8 +421,8 @@ GameObject:
   - component: {fileID: 7258550518187461081}
   - component: {fileID: 4980566798305890970}
   - component: {fileID: 5857539236369987415}
-  - component: {fileID: 1164648975051022031}
   - component: {fileID: 3591163743989207032}
+  - component: {fileID: 6151426061482872361}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -578,20 +578,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1164648975051022031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9167146751976815861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 492af0da120f12c4191eedb74fc745cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 0.2
-  speed: 500
 --- !u!114 &3591163743989207032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,3 +595,21 @@ MonoBehaviour:
   <PopperAnimation>k__BackingField: {fileID: 11400000, guid: 2586d4bf84d04ea49b0ea717489ae5f8, type: 2}
   <DoublePopperAnimation>k__BackingField: {fileID: 11400000, guid: 2d338cd87f8f160409478ded148a2862, type: 2}
   <CannonAnimation>k__BackingField: {fileID: 11400000, guid: a93d6803451a3e24a9770febefe42131, type: 2}
+--- !u!114 &6151426061482872361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167146751976815861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc4fed43489a614c8bff3473cefa8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 12
+  jumpPower: 7
+  gravity: 10
+  lookSpeed: 0.5
+  lookXLimit: 90
+  canMove: 1
