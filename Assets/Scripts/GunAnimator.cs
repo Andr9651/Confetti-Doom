@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class GunAnimator : MonoBehaviour
 	public SpriteAnimation Animation;
 	public Image Image;
 	public bool Playing = false;
-
+	public bool ammoLeft = true;
 	void Start()
 	{
 		Image = GetComponent<Image>();
@@ -33,7 +34,16 @@ public class GunAnimator : MonoBehaviour
 			yield return new WaitForSeconds(frame.time);
 		}
 
-		Image.sprite = Animation.frames[0].sprite;
+		if (ammoLeft)
+		{
+			Image.sprite = Animation.frames[0].sprite;
+		}
+		else
+		{
+			Image.sprite = Animation.frames.Last().sprite;
+			print("No Ammo");
+		}
+		
 
 		Playing = false;
 	}

@@ -7,6 +7,7 @@ TagManager:
   - victim
   - Happy
   - Game
+  - Ammo
   layers:
   - Default
   - TransparentFX
