@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	private Transform _camera;
 	private Transform _transform;
 	private CharacterController _character;
+	private GunAnimator _gunAnimator;
 	private float xRotation = 0;
 	private Vector2 moveInput;
 	public float speed = 5;
@@ -17,13 +18,27 @@ public class Player : MonoBehaviour
 		_camera = GetComponentInChildren<Camera>().transform;
 		_character = GetComponent<CharacterController>();
 		_transform = transform;
+		_gunAnimator = GetComponentInChildren<GunAnimator>();
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
+		SetCursorLock(true);
+	}
+
+	public void SetCursorLock(bool isLocked)
+	{
+		if (isLocked)
+		{
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
+		}
+		else
+		{
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
 	}
 
 	// Update is called once per frame
@@ -51,12 +66,17 @@ public class Player : MonoBehaviour
 
 	private void OnCancel()
 	{
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
+		SetCursorLock(false);
 	}
 
 	private void OnMove(InputValue value)
 	{
 		moveInput = value.Get<Vector2>();
+	}
+
+	private void OnAttack()
+	{
+		SetCursorLock(true);
+		_gunAnimator.Shoot();
 	}
 }
