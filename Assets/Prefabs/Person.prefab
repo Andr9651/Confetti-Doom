@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5037972724008438529}
   - component: {fileID: 6669750588582479844}
   - component: {fileID: 1898559163720577161}
+  - component: {fileID: 8269398382264591626}
   m_Layer: 0
   m_Name: Person
   m_TagString: victim
@@ -122,3 +123,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158f6ea0f091db04c815213d60033fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8269398382264591626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633494346930899298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c218572d6e986b141ab5dda74b4b4cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SadMaterial>k__BackingField: {fileID: 2800000, guid: 308371138e9dde84495283680d5a2e2e, type: 3}
+  <HappyMaterial>k__BackingField: {fileID: 2800000, guid: 10ef6e4e9a091914fb81ddc67f95cd75, type: 3}

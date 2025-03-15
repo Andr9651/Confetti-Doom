@@ -12,13 +12,13 @@ public class Popper : MonoBehaviour
 
                 Vector3 fwd = transform.TransformDirection(Vector3.forward);
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, fwd, out hit, 10))
+                if (Physics.Raycast(transform.position, fwd, out hit, 3))
                 {
                     print($"print: {hit.collider.gameObject.name}");
                     if (hit.collider.gameObject.CompareTag("victim"))
                     {
-                        Destroy(hit.collider.gameObject);
-                       
+                        hit.collider.gameObject.GetComponent<Sad>().MakeHappy();
+
                     }
 
                 }
