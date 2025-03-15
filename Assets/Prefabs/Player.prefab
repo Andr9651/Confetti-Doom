@@ -137,7 +137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 100, y: -200}
+  m_AnchoredPosition: {x: -3, y: -7}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8647266825811796067
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animation: {fileID: 11400000, guid: 2586d4bf84d04ea49b0ea717489ae5f8, type: 2}
+  Playing: 0
 --- !u!1 &9042459010672824376
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,3 +527,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ConfettiBase>k__BackingField: {fileID: 1421732360007012615, guid: 23f1d3d073de29c4ea79e858b90c5a69, type: 3}
+  <PopperAnimation>k__BackingField: {fileID: 11400000, guid: 2586d4bf84d04ea49b0ea717489ae5f8, type: 2}
+  <DoublePopperAnimation>k__BackingField: {fileID: 11400000, guid: 2d338cd87f8f160409478ded148a2862, type: 2}

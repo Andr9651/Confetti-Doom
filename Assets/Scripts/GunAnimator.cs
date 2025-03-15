@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class GunAnimator : MonoBehaviour
 {
 	public SpriteAnimation Animation;
-	private Image _image;
+	public Image Image;
 	public bool Playing = false;
 
 	void Start()
 	{
-		_image = GetComponent<Image>();
-		_image.sprite = Animation.frames[0].sprite;
+		Image = GetComponent<Image>();
+		Image.sprite = Animation.frames[0].sprite;
 	}
 	public void Shoot()
 	{
@@ -29,11 +29,11 @@ public class GunAnimator : MonoBehaviour
 	{
 		foreach (var frame in Animation.frames)
 		{
-			_image.sprite = frame.sprite;
+			Image.sprite = frame.sprite;
 			yield return new WaitForSeconds(frame.time);
 		}
 
-		_image.sprite = Animation.frames[0].sprite;
+		Image.sprite = Animation.frames[0].sprite;
 
 		Playing = false;
 	}
