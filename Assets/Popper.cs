@@ -53,7 +53,7 @@ public class Popper : MonoBehaviour
                 curentAmmo = CannonAmmo;
                 break;
             default:
-                PopperAmmo = PopperAmmo + 5;
+                PopperAmmo = PopperAmmo + 8;
                 curentAmmo = PopperAmmo; 
             
                 break;
