@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3973661863349075602}
   - component: {fileID: 1898559163720577161}
   - component: {fileID: 6519678667079966779}
+  - component: {fileID: 8878715213803750290}
+  - component: {fileID: 8774127025818581030}
   m_Layer: 0
   m_Name: Person
   m_TagString: victim
@@ -100,3 +102,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8878715213803750290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633494346930899298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c218572d6e986b141ab5dda74b4b4cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SadMaterial>k__BackingField: {fileID: 21300000, guid: 308371138e9dde84495283680d5a2e2e, type: 3}
+  <HappyMaterial>k__BackingField: {fileID: 21300000, guid: 10ef6e4e9a091914fb81ddc67f95cd75, type: 3}
+--- !u!136 &8774127025818581030
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633494346930899298}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8949999
+  m_Height: 6.4799995
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

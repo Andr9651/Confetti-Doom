@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7277306355785663410}
   - component: {fileID: 8896150903532357914}
   - component: {fileID: 8954890117874836660}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205977905538937723}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2951237963714373828}
   - component: {fileID: 8647266825811796067}
   - component: {fileID: 7622700052025135418}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 2214676799890219503}
   - component: {fileID: 7013704190123770411}
   - component: {fileID: 386143092473007173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 5857539236369987415}
   - component: {fileID: 1164648975051022031}
   - component: {fileID: 3591163743989207032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,3 +547,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9625ce24f4b6bb34a91dcbe687250321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ConfettiBase>k__BackingField: {fileID: 1421732360007012615, guid: 23f1d3d073de29c4ea79e858b90c5a69, type: 3}
