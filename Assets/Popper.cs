@@ -4,7 +4,11 @@ using UnityEngine;
 public class Popper : MonoBehaviour
 { [field: SerializeField]
     public GameObject ConfettiBase { get; set; }
-
+    private GunAnimator _gunAnimator;
+    [field: SerializeField]
+    public SpriteAnimation PopperAnimation { get; set; }
+    [field: SerializeField]
+    public SpriteAnimation DoublePopperAnimation { get; set; }
     float NextShot { get; set; }
  bool Reloading { get; set; }
      float Speed { get; set; }
@@ -31,6 +35,9 @@ public class Popper : MonoBehaviour
         switch (Type)
         {
             case PopperType.DoublePopper:
+
+                _gunAnimator.Animation = DoublePopperAnimation;
+                
                 MaxAmount = 15;
                 MinAmount = 8;
                 Speed = 40;
@@ -51,6 +58,7 @@ public class Popper : MonoBehaviour
                 ReloadSeconds = 3f;
                 break;
             default:
+                _gunAnimator.Animation = PopperAnimation;
                 MaxAmount = 5;
                 MinAmount = 3;
                 Speed = 20;
@@ -62,6 +70,7 @@ public class Popper : MonoBehaviour
             
                 break;
         }
+        _gunAnimator.Image.sprite = _gunAnimator.Animation.frames[0].sprite;
     }
     
     void FixedUpdate()
@@ -71,7 +80,7 @@ public class Popper : MonoBehaviour
             {
 
 
-                if (Reloading)
+                if (_gunAnimator.Playing)
                 {
                     return;
                 }
@@ -97,6 +106,7 @@ public class Popper : MonoBehaviour
 
     void Makeconfetti()
     {
+        _gunAnimator.Shoot();
         for (int i = 0; i < Random.Range(MinAmount, MaxAmount); i++)
         {
             var position = new Vector3(transform.position.x + Random.Range(MinSpread, MaxSpread),
@@ -153,6 +163,7 @@ public class Popper : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _gunAnimator = GetComponentInChildren<GunAnimator>();
         PickPopper(PopperType.Popper);
     }
 
