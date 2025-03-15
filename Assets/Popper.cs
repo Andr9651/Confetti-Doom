@@ -5,6 +5,8 @@ using UnityEngine;
 public class Popper : MonoBehaviour
 { [field: SerializeField]
     public GameObject ConfettiBase { get; set; }
+    [field: SerializeField]
+    public GameObject CannonEmtpy { get; set; }
     private GunAnimator _gunAnimator;
     [field: SerializeField]
     public SpriteAnimation PopperAnimation { get; set; }
@@ -180,6 +182,7 @@ public class Popper : MonoBehaviour
             newObject.GetComponent<MeshRenderer>().material.color = GetRandomColor();
         }
 
+        
 
         Reload();
     }
@@ -209,9 +212,15 @@ public class Popper : MonoBehaviour
             _gunAnimator.ammoLeft = false;
         }
         NextShot = Time.time + ReloadSeconds;
+        if (CurrentType == PopperType.Cannon)
+        {
+            var pipe = Instantiate(CannonEmtpy, transform.position, Random.rotation);
+            pipe.GetComponent<Rigidbody>().AddForce(transform.forward * 1, ForceMode.Impulse);
+        }
     }
     void Reloaded()
     {
+       
 
         Reloading = false;
       
@@ -253,7 +262,7 @@ public class Popper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NextShot < Time.time)
+        if (NextShot < Time.time && Reloading )
         {
             Reloaded();
         }
