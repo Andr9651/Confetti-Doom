@@ -1,5 +1,8 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Input = UnityEngine.Windows.Input;
 
 public class Game : MonoBehaviour
 {
@@ -20,10 +23,17 @@ public class Game : MonoBehaviour
 		_startTime = Time.time;
 	}
 
+	void OnRestart()
+	{
+		print("Restart");
+		SceneManager.LoadScene(0, LoadSceneMode.Single);
+	}
 	void Update()
 	{
+		
 		if (RemainingTime <= 0)
 		{
+			GameObject.FindWithTag("LoseScreen").GetComponent<Image>().enabled = true;
 			print("You Lose");
 		}
 	}
@@ -34,6 +44,11 @@ public class Game : MonoBehaviour
 
 		if (SadPeopleLeft == 0)
 		{
+			int currentLevel = SceneManager.GetActiveScene().buildIndex;
+			int nextlevel = currentLevel + 1;
+			print(currentLevel);
+			print(nextlevel);
+			SceneManager.LoadScene(nextlevel, LoadSceneMode.Single);
 			print("You Won");
 		}
 	}
