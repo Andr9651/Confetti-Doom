@@ -2,7 +2,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Popper : MonoBehaviour
+public partial class Popper : MonoBehaviour
 {
 	[field: SerializeField]
 	public GameObject ConfettiBase { get; set; }
@@ -31,13 +31,6 @@ public class Popper : MonoBehaviour
 	public int PopperAmmo { get; set; }
 	public int DoublePopperAmmo { get; set; }
 	public int CannonAmmo { get; set; }
-
-	public enum PopperType
-	{
-		Popper,
-		DoublePopper,
-		Cannon
-	}
 
 	public void AddAmmo(PopperType Type)
 	{
@@ -131,17 +124,14 @@ public class Popper : MonoBehaviour
 	bool addingAmmo = false;
 	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-
-
-
 		if (hit.gameObject.CompareTag("Ammo"))
 		{
-			Ammo ammo = hit.gameObject.GetComponent<Ammo>();
+			AmmoPickup ammo = hit.gameObject.GetComponent<AmmoPickup>();
 			if (!ammo.IsPickedUp)
 			{
 				ammo.IsPickedUp = true;
 				addingAmmo = true;
-				AddAmmo(ammo.Type);
+				// AddAmmo(ammo.Type);
 				Debug.Log("Got Ammo");
 				Destroy(hit.gameObject);
 				addingAmmo = false;
@@ -152,6 +142,7 @@ public class Popper : MonoBehaviour
 
 	void OnAttack()
 	{
+		return;
 		if (_gunAnimator.Playing || !_gunAnimator.ammoLeft)
 		{
 			return;

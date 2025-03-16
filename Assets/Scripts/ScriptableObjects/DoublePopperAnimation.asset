@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e837b106a6c6ddf41aa235b307572a6c, type: 3}
-  m_Name: DoublePopper
+  m_Name: DoublePopperAnimation
   m_EditorClassIdentifier: 
   frames:
   - sprite: {fileID: 21300000, guid: 3c207f15f1780044caa26b6afe63f9fc, type: 3}

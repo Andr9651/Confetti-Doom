@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6519678667079966779}
   - component: {fileID: 8878715213803750290}
   - component: {fileID: 8774127025818581030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Girl 2
   m_TagString: victim
   m_Icon: {fileID: 0}

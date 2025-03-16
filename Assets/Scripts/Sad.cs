@@ -18,8 +18,9 @@ public class Sad : MonoBehaviour
 
 	public void MakeHappy()
 	{
-		this.GetComponent<SpriteRenderer>().sprite = HappyMaterial;
-		this.gameObject.tag = "Happy";
+		GetComponent<SpriteRenderer>().sprite = HappyMaterial;
+		gameObject.layer &= ~(1 << 8);
+		tag = "Happy";
 		Game.CountHappy();
 	}
 }

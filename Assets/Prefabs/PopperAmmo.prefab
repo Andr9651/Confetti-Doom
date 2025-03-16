@@ -135,4 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3f4b1436345384594faed6c505c71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 0
+  WeaponType: {fileID: 11400000, guid: ee255e625edd97a41920722c4efbc296, type: 2}

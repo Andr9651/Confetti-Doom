@@ -26,7 +26,30 @@ public class GunAnimator : MonoBehaviour
 		StartCoroutine(PlayAnimation());
 	}
 
-	private IEnumerator PlayAnimation()
+	public void SetAnimation(SpriteAnimation animation, int ammo)
+	{
+		ammoLeft = ammo > 0;
+
+		Animation = animation;
+
+		if (ammoLeft)
+		{
+			Image.sprite = Animation.frames[0].sprite;
+		}
+		else
+		{
+			Image.sprite = Animation.frames.Last().sprite;
+		}
+	}
+
+	public IEnumerator PlayAnimation(SpriteAnimation animation, int ammo)
+	{
+		Animation = animation;
+		ammoLeft = ammo > 0;
+		return PlayAnimation();
+	}
+
+	public IEnumerator PlayAnimation()
 	{
 		foreach (var frame in Animation.frames)
 		{
@@ -43,7 +66,7 @@ public class GunAnimator : MonoBehaviour
 			Image.sprite = Animation.frames.Last().sprite;
 			print("No Ammo");
 		}
-		
+
 
 		Playing = false;
 	}
