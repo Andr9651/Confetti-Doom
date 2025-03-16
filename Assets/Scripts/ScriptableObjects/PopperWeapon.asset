@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PopperWeapon
   m_EditorClassIdentifier: 
   type: 0
-  ConfettiAmount: 100
-  ConfettiSpeed: 30
+  ConfettiAmount: 30
+  ConfettiSpeed: 15
   ConfettiAngle: 15
   Penetrating: 0
   Range: 3
@@ -23,3 +23,7 @@ MonoBehaviour:
   NoAmmoFrame: 0
   AmmoSprite: {fileID: 21300000, guid: 23f8964adfd5e2a44bc6bee81e9854b0, type: 3}
   ammoPickupAmount: 8
+  dropPrefab: {fileID: 0}
+  dropTime: 0
+  dropSpeed: 5
+  dropDistance: 1.5
