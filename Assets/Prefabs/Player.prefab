@@ -33,10 +33,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2951237963714373828}
-  - {fileID: 5743478938206733785}
   - {fileID: 1994879541781244981}
   - {fileID: 6949185280601415271}
   - {fileID: 263403028093553848}
+  - {fileID: 5743478938206733785}
   m_Father: {fileID: 1893388762450212237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -153, y: -86}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6089299249215822804
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7a34be056a1d15c42b2154513b8d5d8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8effd2867ebe8c42b730889d5024227, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc4fed43489a614c8bff3473cefa8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 12
+  walkSpeed: 15
   jumpPower: 7
   gravity: 10
   lookSpeed: 0.5
