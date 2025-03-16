@@ -998,6 +998,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd49f3d0a8a7674b8ecb1bd37a23e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SadPeopleLeft: 0
+  MaxSadPeople: 0
+  TimeLimit: 30
 --- !u!4 &268498896
 Transform:
   m_ObjectHideFlags: 0
