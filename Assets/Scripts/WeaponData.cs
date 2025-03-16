@@ -33,11 +33,15 @@ public class WeaponData : ScriptableObject
 	[Foldout("Animation")]
 	public int NoAmmoFrame;
 
+	[Foldout("Sound")]
+	public AudioClip ShootSound;
+
 	[Foldout("Ammo")]
 	public Sprite AmmoSprite;
 
 	[Foldout("Ammo")]
 	public int ammoPickupAmount = 1;
+
 
 	[Foldout("Drop")]
 	public Rigidbody dropPrefab;
