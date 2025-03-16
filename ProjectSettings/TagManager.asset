@@ -8,6 +8,7 @@ TagManager:
   - Happy
   - Game
   - Ammo
+  - LoseScreen
   layers:
   - Default
   - TransparentFX

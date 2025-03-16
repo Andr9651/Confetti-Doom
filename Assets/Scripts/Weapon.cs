@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,16 +25,19 @@ public class Weapon : MonoBehaviour
 
 	void Awake()
 	{
+		
 		_ammo = new Dictionary<PopperType, int>
 		{
-			[PopperType.Popper] = 0,
+			[PopperType.Popper] = 8,
 			[PopperType.DoublePopper] = 0,
 			[PopperType.Cannon] = 0,
 		};
+		
 	}
 
 	void Start()
 	{
+	
 		_confetti = GetComponentInChildren<ParticleSystem>();
 		_animator = GetComponentInChildren<GunAnimator>();
 		_audio = GetComponent<AudioSource>();
@@ -142,10 +146,12 @@ public class Weapon : MonoBehaviour
 			_ammo[ammo.WeaponType.type] += ammo.WeaponType.ammoPickupAmount;
 			Destroy(hit.gameObject);
 
-			if (_animator.Playing == false)
+			if (_animator.Playing == false || ammo.WeaponType.type != currentWeapon.type)
 			{
+				weaponIndex = weapons.IndexOf(ammo.WeaponType);
 				ChangeWeapon(currentWeapon);
 			}
+			
 		}
 	}
 }
