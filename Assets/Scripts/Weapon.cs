@@ -25,19 +25,19 @@ public class Weapon : MonoBehaviour
 
 	void Awake()
 	{
-		
+
 		_ammo = new Dictionary<PopperType, int>
 		{
 			[PopperType.Popper] = 8,
 			[PopperType.DoublePopper] = 0,
 			[PopperType.Cannon] = 0,
 		};
-		
+
 	}
 
 	void Start()
 	{
-	
+
 		_confetti = GetComponentInChildren<ParticleSystem>();
 		_animator = GetComponentInChildren<GunAnimator>();
 		_audio = GetComponent<AudioSource>();
@@ -121,6 +121,8 @@ public class Weapon : MonoBehaviour
 			StartCoroutine(currentWeapon.Drop(_camera));
 		}
 
+		_audio.PlayOneShot(currentWeapon.ShootSound);
+
 		_animationRoutine = StartCoroutine(_animator.PlayAnimation(currentWeapon.Animation, CurrentAmmo));
 
 		var main = _confetti.main;
@@ -151,7 +153,7 @@ public class Weapon : MonoBehaviour
 				weaponIndex = weapons.IndexOf(ammo.WeaponType);
 				ChangeWeapon(currentWeapon);
 			}
-			
+
 		}
 	}
 }
