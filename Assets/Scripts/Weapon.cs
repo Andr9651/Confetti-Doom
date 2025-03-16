@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
 	private GunAnimator _animator;
 	private Coroutine _animationRoutine;
 	private Transform _camera;
+	private AudioSource _audio;
 
 	private Dictionary<PopperType, int> _ammo;
 
@@ -35,6 +36,7 @@ public class Weapon : MonoBehaviour
 	{
 		_confetti = GetComponentInChildren<ParticleSystem>();
 		_animator = GetComponentInChildren<GunAnimator>();
+		_audio = GetComponent<AudioSource>();
 		_camera = Camera.main.transform;
 	}
 
