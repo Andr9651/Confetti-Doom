@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Weapon : MonoBehaviour
 	private GunAnimator _animator;
 	private Coroutine _animationRoutine;
 	private Transform _camera;
+	private AudioSource _audio;
 
 	private Dictionary<PopperType, int> _ammo;
 
@@ -23,21 +25,22 @@ public class Weapon : MonoBehaviour
 
 	void Awake()
 	{
-		
+
 		_ammo = new Dictionary<PopperType, int>
 		{
 			[PopperType.Popper] = 8,
 			[PopperType.DoublePopper] = 0,
 			[PopperType.Cannon] = 0,
 		};
-		
+
 	}
 
 	void Start()
 	{
-	
+
 		_confetti = GetComponentInChildren<ParticleSystem>();
 		_animator = GetComponentInChildren<GunAnimator>();
+		_audio = GetComponent<AudioSource>();
 		_camera = Camera.main.transform;
 	}
 
@@ -50,6 +53,25 @@ public class Weapon : MonoBehaviour
 			StopCoroutine(_animationRoutine);
 		}
 		_animator.Playing = false;
+	}
+
+	private void OnScrollWheel(InputValue value)
+	{
+		var input = value.Get<Vector2>().y;
+		print((int)Mathf.Clamp(input, -1, 1));
+		weaponIndex += (int)Mathf.Clamp(input, -1, 1);
+
+		if (weaponIndex == weapons.Count)
+		{
+			weaponIndex -= weapons.Count;
+		}
+
+		if (weaponIndex == -1)
+		{
+			weaponIndex += weapons.Count;
+		}
+
+		ChangeWeapon(currentWeapon);
 	}
 
 	private void OnNext()
@@ -99,6 +121,8 @@ public class Weapon : MonoBehaviour
 			StartCoroutine(currentWeapon.Drop(_camera));
 		}
 
+		_audio.PlayOneShot(currentWeapon.ShootSound);
+
 		_animationRoutine = StartCoroutine(_animator.PlayAnimation(currentWeapon.Animation, CurrentAmmo));
 
 		var main = _confetti.main;
@@ -129,7 +153,7 @@ public class Weapon : MonoBehaviour
 				weaponIndex = weapons.IndexOf(ammo.WeaponType);
 				ChangeWeapon(currentWeapon);
 			}
-			
+
 		}
 	}
 }

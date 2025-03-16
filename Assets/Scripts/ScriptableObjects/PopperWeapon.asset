@@ -21,6 +21,7 @@ MonoBehaviour:
   Size: 0.2
   Animation: {fileID: 11400000, guid: 2586d4bf84d04ea49b0ea717489ae5f8, type: 2}
   NoAmmoFrame: 0
+  ShootSound: {fileID: 8300000, guid: f13b9a92dc2de0d4c9cdbd00ac3d3766, type: 3}
   AmmoSprite: {fileID: 21300000, guid: 23f8964adfd5e2a44bc6bee81e9854b0, type: 3}
   ammoPickupAmount: 8
   dropPrefab: {fileID: 0}
