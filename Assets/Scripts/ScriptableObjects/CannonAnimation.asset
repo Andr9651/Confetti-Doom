@@ -16,14 +16,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 8a8ee3c231442c841a21d5cc06360226, type: 3}
     time: 0
   - sprite: {fileID: 21300000, guid: 9d4d898ba2f948242a019d3683d86525, type: 3}
-    time: 0.5
+    time: 0.4
   - sprite: {fileID: 21300000, guid: bd96105e2cdc7fc42b943231ef3bb5db, type: 3}
-    time: 0.2
+    time: 0.1
   - sprite: {fileID: 21300000, guid: ff824ff3a7f26e944a6f0d8f7e6c4aec, type: 3}
-    time: 0.2
+    time: 0.1
   - sprite: {fileID: 21300000, guid: 79201c7e876688c46bb2a112dab7e436, type: 3}
-    time: 0.8
+    time: 0.1
   - sprite: {fileID: 21300000, guid: 91ad8818a65bb6b469127e4bf174b82b, type: 3}
     time: 0.1
   - sprite: {fileID: 21300000, guid: 8c9e565f55011114d9694039146b4bf0, type: 3}
-    time: 0.2
+    time: 0.1
