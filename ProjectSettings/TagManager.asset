@@ -9,6 +9,7 @@ TagManager:
   - Game
   - Ammo
   - LoseScreen
+  - WinScreen
   layers:
   - Default
   - TransparentFX

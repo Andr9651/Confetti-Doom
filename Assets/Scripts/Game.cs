@@ -56,8 +56,17 @@ public class Game : MonoBehaviour
 			int nextlevel = currentLevel + 1;
 			print(currentLevel);
 			print(nextlevel);
+			if (nextlevel == SceneManager.sceneCountInBuildSettings )
+			{
+				print("No more Game");
+				GameObject.FindWithTag("WinScreen").GetComponent<Image>().enabled = true;
+			}
+			else
+			{
 			SceneManager.LoadScene(nextlevel, LoadSceneMode.Single);
-			print("You Won");
+            			print("You Won");	
+			}
+			
 		}
 	}
 }
