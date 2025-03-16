@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -46,6 +47,25 @@ public class Weapon : MonoBehaviour
 			StopCoroutine(_animationRoutine);
 		}
 		_animator.Playing = false;
+	}
+
+	private void OnScrollWheel(InputValue value)
+	{
+		var input = value.Get<Vector2>().y;
+		print((int)Mathf.Clamp(input, -1, 1));
+		weaponIndex += (int)Mathf.Clamp(input, -1, 1);
+
+		if (weaponIndex == weapons.Count)
+		{
+			weaponIndex -= weapons.Count;
+		}
+
+		if (weaponIndex == -1)
+		{
+			weaponIndex += weapons.Count;
+		}
+
+		ChangeWeapon(currentWeapon);
 	}
 
 	private void OnNext()
