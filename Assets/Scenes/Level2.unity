@@ -1519,6 +1519,7 @@ MonoBehaviour:
   SadPeopleLeft: 0
   MaxSadPeople: 0
   TimeLimit: 40
+  TimerEnabled: 0
 --- !u!4 &268493697
 Transform:
   m_ObjectHideFlags: 0
@@ -8317,6 +8318,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1893388762450212237, guid: 0d75191a20abd9a4585681a6069deff6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818316971864454067, guid: 0d75191a20abd9a4585681a6069deff6, type: 3}
+      propertyPath: TimeLimit
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818316971864454067, guid: 0d75191a20abd9a4585681a6069deff6, type: 3}
+      propertyPath: TimerEnabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9167146751976815861, guid: 0d75191a20abd9a4585681a6069deff6, type: 3}
